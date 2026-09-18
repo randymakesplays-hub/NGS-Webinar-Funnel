@@ -38,11 +38,13 @@
     var el = $('[data-local-time]');
     if (!el) return;
     if (!hasDate) { el.textContent = '[PLACEHOLDER: webinar date + time — set webinarAt in config.js]'; return; }
+    var narrow = window.innerWidth < 640;
     try {
       el.textContent = new Date(target).toLocaleString(undefined, {
-        weekday: 'long', month: 'long', day: 'numeric',
-        hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
-      }) + ' · your local time';
+        weekday: narrow ? 'short' : 'long',
+        month: narrow ? 'short' : 'long',
+        day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
+      }) + (narrow ? '' : ' · your local time');
     } catch (e) {
       el.textContent = new Date(target).toString();
     }
@@ -65,34 +67,6 @@
   renderLocalTime();
   tick();
   if (hasDate) setInterval(tick, 1000);
-
-  /* ----------------------------------------------------------------- seats */
-  function paintSeats(claimed) {
-    var total = CFG.totalSeats || 500;
-    var pct = Math.min(100, Math.round((claimed / total) * 100));
-    $$('[data-seats-claimed]').forEach(function (el) { el.textContent = claimed.toLocaleString(); });
-    $$('[data-seats-total]').forEach(function (el) { el.textContent = total.toLocaleString(); });
-    $$('[data-seats-pct]').forEach(function (el) { el.textContent = pct; });
-    $$('[data-seats-meter]').forEach(function (el) { el.style.width = pct + '%'; });
-  }
-  paintSeats(CFG.seatsClaimed || 0);
-
-  // Real number from the registration backend when one is wired. The count is
-  // never incremented client-side — a fake counter poisons every other number.
-  if (CFG.seatsEndpoint) {
-    fetch(CFG.seatsEndpoint, { headers: { Accept: 'application/json' } })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) {
-        if (data && typeof data.claimed === 'number') paintSeats(data.claimed);
-      })
-      .catch(function () { /* keep the configured fallback */ });
-  }
-
-  /* ----------------------------------------------------------------- price */
-  var priceNow = $('[data-bfcm-price]');
-  var priceWas = $('[data-regular-price]');
-  if (priceNow && CFG.bfcmPrice) priceNow.textContent = CFG.bfcmPrice;
-  if (priceWas && CFG.regularPrice) priceWas.textContent = CFG.regularPrice;
 
   /* ------------------------------------------------------------ accordions */
   $$('.accordion__btn').forEach(function (btn) {
@@ -143,7 +117,10 @@
     var nudged = false;
     var KEY = 'ngs-vsl-position';
 
-    if (!CFG.vslSrc) return; // placeholder block stays until the file exists
+    if (!CFG.vslSrc) {
+      console.warn('NGS: vslSrc is empty \u2014 the VSL placeholder is showing.');
+      return;
+    }
 
     video.src = CFG.vslSrc;
     if (CFG.vslPoster) video.poster = CFG.vslPoster;

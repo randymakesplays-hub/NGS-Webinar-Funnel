@@ -25,9 +25,7 @@ Everything below is a real gap, not a default to ship. All of it lives in
 | Webinar date + time (one fixed instant) | `webinarAt` |
 | Webinar platform + join link | `joinUrl` |
 | Registration backend (POST endpoint) | `registerEndpoint` |
-| Live seat count from that backend | `seatsEndpoint` |
 | VSL file (6:14, captions burned in) + poster still | `vslSrc`, `vslPoster` |
-| BFCM price and regular price | `bfcmPrice`, `regularPrice` |
 | Kingxeuro origin story, 2–3 sentences | `index.html` — Host section |
 | Kingxeuro portrait, 4:5 | `index.html` — `.host__photo` |
 | 3 client testimonial MP4s (already on the NGS CDN) | `index.html` — `data-src` on `[data-testimonial]` |
@@ -82,10 +80,13 @@ The submitted payload includes UTM parameters from the landing URL.
 ## Page mechanics carried from the build spec
 
 - One page, one action: every CTA opens the same modal. No nav links away.
+- The countdown band holds the countdown alone, centred — no seat meter, no
+  "X of 500 claimed" anywhere. The Brand Scale price card is gone too; the
+  price is announced live and nothing on the page quotes it.
+- Brand strip: label on its own line above a hairline, names spread underneath.
 - Sticky CTA bar on mobile once the hero scrolls out; desktop keeps the nav button.
-- Countdown runs to one fixed instant, rendered in the visitor's local time zone.
-- Seat counter reads a real number when `seatsEndpoint` is wired and is never
-  incremented client-side.
+- Countdown runs to one fixed instant, rendered in the visitor's local time zone
+  (compact format under 640px).
 - VSL: autoplay muted with a full-frame unmute overlay, no scrubber, thin
   progress bar, pauses when scrolled away, resumes and remembers position in
   `sessionStorage`, and nudges the CTA once at 60% watched.

@@ -142,7 +142,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 @media (max-width: 720px) { .nav__rule { display: none; } .nav .btn { display: none; } }
 
 /* --- hero ------------------------------------------------------------- */
-.hero { padding: clamp(36px, 6.1vw, 88px) 0 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hero { padding: clamp(36px, 6.1vw, 88px) var(--gutter) 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .pill {
   display: inline-flex; align-items: center; gap: 10px;
   border: 1px solid var(--rule-hard);
@@ -186,33 +186,41 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 .vsl__bar { position: absolute; bottom: 0; left: 0; height: 3px; width: 100%; background: rgba(0, 0, 0, 0.08); }
 .vsl__bar span { display: block; height: 3px; width: 0%; background: var(--accent); transition: width 0.25s linear; }
 
-/* --- countdown + seats ------------------------------------------------ */
-.strip { border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); margin-top: clamp(32px, 5.5vw, 80px); }
-.strip__inner {
-  padding: clamp(22px, 2.4vw, 34px) 0;
-  display: flex; align-items: center; justify-content: space-between; gap: clamp(20px, 3.3vw, 48px);
-  flex-wrap: wrap;
+/* --- countdown -------------------------------------------------------- */
+.strip { border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); margin-top: clamp(28px, 5.5vw, 80px); }
+.countdown {
+  padding: clamp(26px, 4.4vw, 64px) var(--gutter) clamp(24px, 4vw, 58px);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
 }
-.countdown { display: flex; align-items: center; gap: clamp(14px, 1.9vw, 28px); flex-wrap: wrap; }
-.countdown__units { display: flex; gap: clamp(12px, 1.25vw, 18px); }
-.unit { text-align: center; min-width: clamp(48px, 4.3vw, 62px); }
-.unit__n { font-family: var(--display); font-size: clamp(28px, 2.4vw, 34px); font-weight: 700; color: var(--accent); line-height: 1; font-variant-numeric: tabular-nums; }
-.unit__l { font-family: var(--mono); font-size: clamp(8px, 0.65vw, 9px); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-62); margin-top: 6px; }
-.seats { flex-grow: 1; max-width: 460px; min-width: 240px; }
-.seats__row { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-.seats__pct { color: var(--accent); }
-.meter { height: 6px; width: 100%; background: var(--rule); }
-.meter span { display: block; height: 6px; width: 0%; background: var(--accent); transition: width 0.6s ease; }
-.local-time { width: 100%; margin-top: 4px; }
+.countdown__label { letter-spacing: clamp(0.2em, 0.6vw, 0.32em); }
+.countdown__units { display: flex; gap: clamp(18px, 3.9vw, 56px); margin-top: clamp(14px, 1.8vw, 26px); }
+.unit { text-align: center; min-width: clamp(52px, 7.5vw, 108px); }
+.unit__n {
+  font-family: var(--display); font-size: clamp(40px, 5.7vw, 82px); font-weight: 700;
+  color: var(--accent); line-height: 0.9; letter-spacing: -0.04em; font-variant-numeric: tabular-nums;
+}
+.unit__l {
+  font-family: var(--mono); font-size: clamp(8px, 0.65vw, 9px); letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink-62); margin-top: clamp(9px, 1.1vw, 16px);
+}
+.countdown__when { margin-top: clamp(16px, 2.4vw, 34px); letter-spacing: 0.16em; }
 
 /* --- brand strip ------------------------------------------------------ */
-.brands { border-bottom: 1px solid var(--rule-soft); overflow: hidden; }
-.brands__inner { padding: clamp(24px, 2.6vw, 38px) 0; display: flex; align-items: center; justify-content: center; gap: clamp(20px, 2.8vw, 40px); flex-wrap: wrap; }
-.brands__name {
-  font-family: var(--display); font-size: clamp(13px, 1.05vw, 15px); font-weight: 600;
-  letter-spacing: 0.06em; text-transform: uppercase; color: rgba(0, 0, 0, 0.60);
-  white-space: nowrap;
+.brands { border-bottom: 1px solid var(--rule-soft); }
+.brands__inner { padding: clamp(22px, 2.4vw, 34px) var(--gutter) clamp(24px, 2.7vw, 38px); }
+.brands__label { letter-spacing: clamp(0.2em, 0.6vw, 0.3em); }
+.brands__row {
+  margin-top: clamp(12px, 1.8vw, 26px);
+  padding-top: clamp(12px, 1.5vw, 22px);
+  border-top: 1px solid var(--rule-soft);
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: clamp(10px, 1.4vw, 20px); flex-wrap: wrap;
 }
+.brands__name {
+  font-family: var(--display); font-size: clamp(13px, 1.2vw, 17px); font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-72); white-space: nowrap;
+}
+@media (max-width: 860px) { .brands__row { justify-content: flex-start; gap: 10px 18px; } }
 
 /* --- generic sections ------------------------------------------------- */
 .section { padding: var(--section-y) 0; }
@@ -282,19 +290,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 }
 .accordion--modules .accordion__panel p { margin-left: clamp(0px, 4.3vw, 62px); }
 
-/* --- price card ------------------------------------------------------- */
-.price {
-  margin-top: clamp(32px, 3.6vw, 52px);
-  border: 1px solid var(--accent);
-  padding: clamp(28px, 3.1vw, 44px) clamp(26px, 3.3vw, 48px);
-  display: flex; align-items: center; justify-content: space-between; gap: clamp(24px, 2.8vw, 40px);
-  flex-wrap: wrap;
-}
-.price__now { font-family: var(--display); font-size: clamp(32px, 3.6vw, 52px); font-weight: 700; letter-spacing: -0.03em; }
-.price__was { font-family: var(--display); font-size: clamp(18px, 1.8vw, 26px); font-weight: 500; color: var(--ink-62); text-decoration: line-through; }
-.price__row { display: flex; align-items: baseline; gap: clamp(12px, 1.4vw, 20px); flex-wrap: wrap; }
-.price .eyebrow { margin-bottom: 14px; letter-spacing: 0.24em; }
-.price .body { margin-top: 14px; }
+/* --- offer CTA (replaces the price card) ------------------------------ */
+.offer-cta { margin-top: clamp(30px, 3.6vw, 52px); display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
 
 /* --- for / not for ---------------------------------------------------- */
 .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 1.7vw, 24px); }
@@ -342,7 +339,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 /* --- footer ----------------------------------------------------------- */
 .footer { border-top: 1px solid var(--rule-soft); }
 .footer__inner {
-  padding: clamp(28px, 3.1vw, 44px) 0;
+  padding: clamp(28px, 3.1vw, 44px) var(--gutter);
   display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
 }
 .footer__legal { margin: 0; max-width: 780px; font-size: 12px; line-height: 1.6; color: var(--ink-62); text-align: center; flex: 1 1 420px; }
@@ -422,3 +419,46 @@ body[data-locked] { overflow: hidden; }
 .ty__list li { list-style: none; padding: 18px 0; border-bottom: 1px solid var(--rule); font-size: 15px; line-height: 1.6; color: var(--ink-72); display: flex; gap: 16px; }
 .ty__list ul { margin: 0; padding: 0; }
 .ty__list .accordion__n { color: var(--accent); }
+
+/* --- small screens: less is more -------------------------------------- */
+@media (max-width: 640px) {
+  :root { --gutter: 20px; --section-y: 44px; }
+
+  .eyebrow { font-size: 8px; letter-spacing: 0.2em; }
+  .micro { font-size: 8px; letter-spacing: 0.12em; }
+  .h-hero { font-size: 32px; line-height: 1; }
+  .h-section { font-size: 27px; line-height: 1.06; }
+  .h-sub { font-size: 22px; }
+  .lede, .body-lg { font-size: 14px; line-height: 1.6; }
+  .body { font-size: 14px; }
+
+  .hero { padding-top: 28px; }
+  .pill { margin-bottom: 20px; padding: 6px 12px; }
+  .hero__lede { margin-top: 18px; }
+  .vsl { margin-top: 22px; }
+  .hero__cta { width: 100%; margin-top: 20px; }
+  .btn--lg { font-size: 11px; letter-spacing: 0.16em; padding: 18px 20px; }
+  .btn--md { font-size: 11px; letter-spacing: 0.16em; padding: 17px 24px; }
+
+  .split { gap: 28px; }
+  .split__main { gap: 14px; padding-top: 0; }
+  .grid-rule > * { padding: 26px 20px; }
+  .card { padding: 24px 20px; }
+  .panel { padding: 28px 20px; }
+  .accordion__btn { padding: 18px 0; }
+  .accordion__title { font-size: 18px; }
+  .accordion--modules .accordion__panel p { margin-left: 0; }
+  .section__head { margin-bottom: 30px; }
+  .statbar { margin-top: 30px; padding-top: 28px; }
+  .final h2 { font-size: 30px; }
+  .host__body h2 { font-size: 38px; }
+  .test { height: auto; }
+}
+
+/* Nothing in the centred columns may out-run the gutters. */
+.hero > *, .countdown > *, .final > *, .section__head > * { max-width: 100%; }
+.micro, .eyebrow { overflow-wrap: break-word; }
+
+/* Last word on the gutters: any element that also carries .wrap keeps them,
+   whatever padding shorthand its own class sets above. */
+.wrap { padding-inline: var(--gutter); }
