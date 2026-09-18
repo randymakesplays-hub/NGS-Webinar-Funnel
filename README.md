@@ -24,7 +24,7 @@ Everything below is a real gap, not a default to ship. All of it lives in
 | --- | --- |
 | Webinar date + time (one fixed instant) | `webinarAt` |
 | Webinar platform + join link | `joinUrl` |
-| Registration backend (POST endpoint) | `registerEndpoint` |
+| GoHighLevel Inbound Webhook URL | `registerEndpoint` |
 | VSL file (6:14, captions burned in) + poster still | `vslSrc`, `vslPoster` |
 | Kingxeuro origin story, 2–3 sentences | `index.html` — Host section |
 | Kingxeuro portrait, 4:5 | `index.html` — `.host__photo` |
@@ -75,7 +75,33 @@ collects a phone number with no consent step while the site's own SMS Terms say
 consent is required and separate — this funnel sends reminder texts, so it asks
 properly.
 
-The submitted payload includes UTM parameters from the landing URL.
+### Wiring GoHighLevel
+
+Registrations POST to a GHL workflow Inbound Webhook — no API key in the
+browser, and the custom form keeps its design.
+
+1. GHL → Automation → Workflows → new workflow → Add Trigger → **Inbound Webhook**.
+2. Copy the URL it gives you into `registerEndpoint` in `assets/js/config.js`.
+3. Submit the form once on the live page so GHL captures a sample payload.
+4. Map the fields in the workflow (Create/Update Contact), then add the
+   confirmation email and SMS.
+
+Flat keys are sent so they map straight onto contact fields:
+
+`full_name` `first_name` `last_name` `email` `phone` (normalised to E.164, US
+default) · `instagram_url` `monthly_revenue` `running_paid_ads`
+`heard_about_ngs` · `sms_consent` `sms_consent_text` `sms_consent_at` ·
+`registration_source` `webinar_at` `page_url` `submitted_at` ·
+`utm_source` `utm_medium` `utm_campaign` `utm_content` `utm_term`
+
+Only send reminder texts to contacts where `sms_consent` is true, and keep
+`sms_consent_text` and `sms_consent_at` on the contact as the consent record.
+
+GHL webhooks don't always answer with CORS headers, so the page POSTs normally
+first and, if it can't read the response back, retries once as an opaque
+`no-cors` request. That means a delivered registration is never reported as a
+failure — but it also means the browser can't confirm delivery. **Check the
+first live submission actually lands in GHL.**
 
 ## Page mechanics carried from the build spec
 

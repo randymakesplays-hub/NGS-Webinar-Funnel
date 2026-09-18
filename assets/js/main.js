@@ -287,64 +287,100 @@
       if (consentError) consentError.hidden = consent.checked;
     });
 
+    // GoHighLevel takes this as a workflow Inbound Webhook: flat keys map
+    // straight onto contact fields in the workflow builder.
+    function normalisePhone(raw) {
+      var digits = (raw || '').replace(/\D/g, '');
+      if (!digits) return '';
+      if (digits.length === 10) return '+1' + digits;            // US default, as on the Typeform
+      if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
+      return (raw.trim().charAt(0) === '+' ? '+' : '') + digits;
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (status) status.textContent = '';
       if (!validate()) return;
 
       var params = new URLSearchParams(window.location.search);
+      var fullName = $('#f-name').value.trim();
+      var firstSpace = fullName.indexOf(' ');
+      var consentLabel = $('label[for="f-sms"]');
+
       var payload = {
-        name: $('#f-name').value.trim(),
+        // contact
+        full_name: fullName,
+        first_name: firstSpace === -1 ? fullName : fullName.slice(0, firstSpace),
+        last_name: firstSpace === -1 ? '' : fullName.slice(firstSpace + 1).trim(),
         email: $('#f-email').value.trim(),
-        phone: $('#f-phone').value.trim(),
-        smsConsent: !!(consent && consent.checked),
-        smsConsentText: consent ? ($('label[for="f-sms"]') || {}).textContent : '',
-        instagram: $('#f-ig').value.trim(),
-        revenue: $('#f-rev').value,
-        runningAds: $('#f-ads').value,
-        source: $('#f-source').value,
-        webinarAt: CFG.webinarAt || null,
-        submittedAt: new Date().toISOString(),
-        utm: {
-          source: params.get('utm_source'),
-          medium: params.get('utm_medium'),
-          campaign: params.get('utm_campaign'),
-          content: params.get('utm_content'),
-          term: params.get('utm_term')
-        }
+        phone: normalisePhone($('#f-phone').value),
+        // answers
+        instagram_url: $('#f-ig').value.trim(),
+        monthly_revenue: $('#f-rev').value,
+        running_paid_ads: $('#f-ads').value,
+        heard_about_ngs: $('#f-source').value,
+        // SMS consent record — keep the wording and the timestamp, not just the flag
+        sms_consent: !!(consent && consent.checked),
+        sms_consent_text: consentLabel ? consentLabel.textContent.replace(/\s+/g, ' ').trim() : '',
+        sms_consent_at: new Date().toISOString(),
+        // context
+        registration_source: 'BFCM Webinar Registration Page',
+        webinar_at: CFG.webinarAt || '',
+        page_url: window.location.href,
+        submitted_at: new Date().toISOString(),
+        utm_source: params.get('utm_source') || '',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || '',
+        utm_term: params.get('utm_term') || ''
       };
 
       function done() {
         track('CompleteRegistration', { content_name: 'BFCM Webinar', value: 0, currency: 'USD' });
-        try { sessionStorage.setItem('ngs-registered-name', payload.name); } catch (err) { /* noop */ }
+        try { sessionStorage.setItem('ngs-registered-name', payload.first_name || fullName); } catch (err) { /* noop */ }
         window.location.href = CFG.thankYouUrl || 'thank-you.html';
       }
 
       if (!CFG.registerEndpoint) {
         // No backend wired yet. Do not pretend it sent.
-        console.warn('NGS: registerEndpoint is empty — registration was not sent anywhere.');
+        console.warn('NGS: registerEndpoint is empty \u2014 registration was not sent anywhere.');
         done();
         return;
       }
 
       submit.disabled = true;
       var label = submit.textContent;
-      submit.textContent = 'Saving your seat…';
+      submit.textContent = 'Saving your seat\u2026';
+
+      var body = JSON.stringify(payload);
 
       fetch(CFG.registerEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: body
       })
         .then(function (r) {
           if (!r.ok) throw new Error('Registration failed: ' + r.status);
           done();
         })
         .catch(function (err) {
-          submit.disabled = false;
-          submit.textContent = label;
-          if (status) status.textContent = 'That didn’t go through. Check your connection and try again — or email us and we’ll add you by hand.';
-          console.error(err);
+          // GHL inbound webhooks don't always answer with CORS headers, so a
+          // delivered POST can still land here. Retry once as a simple
+          // no-cors request, which the browser sends but won't let us read.
+          console.warn('NGS: registration POST could not be read back, retrying opaque.', err);
+          fetch(CFG.registerEndpoint, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+            body: body
+          })
+            .then(done)
+            .catch(function (err2) {
+              submit.disabled = false;
+              submit.textContent = label;
+              if (status) status.textContent = 'That didn\u2019t go through. Check your connection and try again \u2014 or email us and we\u2019ll add you by hand.';
+              console.error(err2);
+            });
         });
     });
   }
