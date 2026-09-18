@@ -15,15 +15,9 @@ window.NGS_CONFIG = {
   joinUrl: '',
 
   /* ---- Scarcity ------------------------------------------------------- */
+  // Used in copy only ("500 seats"). The live seat meter was removed from the
+  // page, so nothing here is fetched or counted.
   totalSeats: 500,
-
-  // Fallback used only until seatsEndpoint is wired. Never increment this
-  // per visitor — one fake number poisons every real number on the page.
-  seatsClaimed: 347,
-
-  // Optional GET endpoint returning { "claimed": <number> } from the
-  // registration backend. Empty string = use seatsClaimed above.
-  seatsEndpoint: '',
 
   /* ---- Registration --------------------------------------------------- */
   // POST endpoint for the registration modal (JSON body).
@@ -36,10 +30,6 @@ window.NGS_CONFIG = {
   // PLACEHOLDER: VSL file (6:14, captions burned in) and poster still.
   vslSrc: '',
   vslPoster: '',
-
-  /* ---- Pricing (revealed live, shown struck on the page) --------------- */
-  bfcmPrice: '[BFCM PRICE]',      // PLACEHOLDER
-  regularPrice: '[REGULAR PRICE]', // PLACEHOLDER
 
   /* ---- Tracking ------------------------------------------------------- */
   // Existing NGS pixel. NOTE: the main site fires `Lead` at $4,000 on the

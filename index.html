@@ -41,7 +41,7 @@
 
     <h1 class="h-hero">We Say No To Most Brands That Apply.<span class="h-hero__accent">This Black Friday, We&rsquo;re Not.</span></h1>
 
-    <p class="lede hero__lede">Kingxeuro is going live to break down the exact system NGS uses to scale clothing brands — then opening the Brand Scale vault to every founder we&rsquo;ve ever had to turn away. One night. One week of pricing.</p>
+    <p class="lede hero__lede">Kingxeuro goes live to break down the system NGS uses to scale clothing brands — then opens the vault to every founder we&rsquo;ve had to turn away. One night.</p>
 
     <!-- VSL -->
     <div class="vsl">
@@ -52,7 +52,6 @@
             <svg width="28" height="32" viewBox="0 0 28 32" fill="none" aria-hidden="true"><path d="M26 14.268a2 2 0 0 1 0 3.464L4 30.454a2 2 0 0 1-3-1.732V3.278a2 2 0 0 1 3-1.732z" fill="#FFFFFF"/></svg>
           </button>
           <span class="eyebrow">Watch First — 6 Min From Kingxeuro</span>
-          <span class="vsl__hint" data-vsl-hint>[VSL VIDEO — set vslSrc in assets/js/config.js]</span>
         </div>
         <button type="button" class="vsl__unmute" data-vsl-unmute hidden>
           <span class="vsl__unmute-badge" aria-hidden="true">
@@ -65,43 +64,36 @@
     </div>
 
     <button type="button" class="btn btn--lg hero__cta" data-register data-vsl-cta>Save My Seat — Free</button>
-    <p class="micro hero__note">Free to attend · <span data-seats-total>500</span> live seats · Replay not guaranteed</p>
+    <p class="micro hero__note">Free to attend · 500 seats · No replay guaranteed</p>
   </section>
 
-  <!-- COUNTDOWN + SEATS -->
-  <section class="strip" aria-label="Countdown and seat availability">
-    <div class="wrap strip__inner">
-      <div class="countdown">
-        <span class="eyebrow">Doors Open In</span>
-        <div class="countdown__units" data-countdown>
-          <div class="unit"><div class="unit__n" data-cd="d">--</div><div class="unit__l">Days</div></div>
-          <div class="unit"><div class="unit__n" data-cd="h">--</div><div class="unit__l">Hrs</div></div>
-          <div class="unit"><div class="unit__n" data-cd="m">--</div><div class="unit__l">Min</div></div>
-          <div class="unit"><div class="unit__n" data-cd="s">--</div><div class="unit__l">Sec</div></div>
-        </div>
+  <!-- COUNTDOWN -->
+  <section class="strip" aria-label="Countdown to the live">
+    <div class="wrap countdown">
+      <span class="eyebrow countdown__label">Doors Open In</span>
+      <div class="countdown__units" data-countdown>
+        <div class="unit"><div class="unit__n" data-cd="d">--</div><div class="unit__l">Days</div></div>
+        <div class="unit"><div class="unit__n" data-cd="h">--</div><div class="unit__l">Hrs</div></div>
+        <div class="unit"><div class="unit__n" data-cd="m">--</div><div class="unit__l">Min</div></div>
+        <div class="unit"><div class="unit__n" data-cd="s">--</div><div class="unit__l">Sec</div></div>
       </div>
-      <div class="seats">
-        <div class="seats__row">
-          <span class="eyebrow"><span data-seats-claimed>—</span> of <span data-seats-total>500</span> seats claimed</span>
-          <span class="eyebrow seats__pct"><span data-seats-pct>—</span>% full</span>
-        </div>
-        <div class="meter"><span data-seats-meter></span></div>
-      </div>
-      <p class="micro local-time" data-local-time></p>
+      <p class="micro countdown__when" data-local-time></p>
     </div>
   </section>
 
   <!-- BRAND STRIP -->
   <section class="brands" aria-label="Brands we have scaled">
     <div class="wrap brands__inner">
-      <span class="eyebrow">Brands we&rsquo;ve scaled</span>
-      <span class="brands__name">Kings Play Apparel</span>
-      <span class="brands__name">Crib Essentials</span>
-      <span class="brands__name">Ill Studios</span>
-      <span class="brands__name">KAMO</span>
-      <span class="brands__name">Lavish Legacy</span>
-      <span class="brands__name">Imperil Vestures</span>
-      <span class="brands__name">One Chance</span>
+      <span class="eyebrow brands__label">Brands we&rsquo;ve scaled</span>
+      <div class="brands__row">
+        <span class="brands__name">Kings Play Apparel</span>
+        <span class="brands__name">Crib Essentials</span>
+        <span class="brands__name">Ill Studios</span>
+        <span class="brands__name">KAMO</span>
+        <span class="brands__name">Lavish Legacy</span>
+        <span class="brands__name">Imperil Vestures</span>
+        <span class="brands__name">One Chance</span>
+      </div>
     </div>
   </section>
 
@@ -260,17 +252,11 @@
         </div>
       </div>
 
-      <div class="price">
-        <div>
-          <span class="eyebrow eyebrow--accent">Black Friday Pricing</span>
-          <div class="price__row">
-            <span class="price__now" data-bfcm-price>[BFCM PRICE]</span>
-            <span class="price__was" data-regular-price>[REGULAR PRICE]</span>
-          </div>
-          <p class="body">Revealed live on the call. Window closes Cyber Monday at midnight.</p>
-        </div>
+      <div class="offer-cta">
         <button type="button" class="btn btn--md" data-register>Save My Seat</button>
+        <p class="micro">Announced live on the call · Window closes Cyber Monday</p>
       </div>
+
     </div>
   </section>
 
@@ -404,9 +390,9 @@
   <section class="section section--alt final">
     <div class="wrap">
       <h2>One night. Then it&rsquo;s a year until the next one.</h2>
-      <p class="lede">Free to attend. <span data-seats-total>500</span> seats. The Brand Scale price lives and dies inside Black Friday week.</p>
+      <p class="lede">Free to attend. 500 seats. The Brand Scale price lives and dies inside Black Friday week.</p>
       <button type="button" class="btn btn--lg" data-register>Save My Seat — Free</button>
-      <p class="micro"><span data-seats-claimed>—</span> of <span data-seats-total>500</span> claimed · Takes 20 seconds</p>
+      <p class="micro">Takes 20 seconds</p>
     </div>
   </section>
 
@@ -424,7 +410,7 @@
 <!-- STICKY MOBILE CTA -->
 <div class="sticky" data-sticky>
   <button type="button" class="btn btn--md btn--block" data-register>Save My Seat — Free</button>
-  <span class="micro sticky__note"><span data-sticky-cd>—</span> left · <span data-seats-claimed>—</span>/<span data-seats-total>500</span> claimed</span>
+  <span class="micro sticky__note"><span data-sticky-cd>—</span> left · free to attend</span>
 </div>
 
 <!-- REGISTRATION MODAL -->
@@ -504,7 +490,7 @@
 
       <p class="form__status" data-form-status role="alert"></p>
       <button type="submit" class="btn btn--lg btn--block form__submit" data-form-submit>Save My Seat — Free</button>
-      <p class="micro form__foot">Free to attend · <span data-seats-claimed>—</span> of <span data-seats-total>500</span> claimed · Takes 20 seconds</p>
+      <p class="micro form__foot">Free to attend · Takes 20 seconds</p>
     </form>
   </div>
 </div>
