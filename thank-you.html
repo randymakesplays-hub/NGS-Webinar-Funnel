@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You&rsquo;re In — NGS Black Friday Live</title>
+<meta name="description" content="Your seat is saved. Add it to your calendar and bring your ad account.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/config.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <div class="nav__left">
+      <span class="nav__logo">NGS</span>
+      <span class="nav__rule" aria-hidden="true"></span>
+      <span class="eyebrow">Black Friday 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap section ty">
+  <span class="pill" style="align-self: center;">
+    <span class="pill__dot" aria-hidden="true"></span>
+    <span class="eyebrow">Seat Confirmed</span>
+  </span>
+
+  <h1 data-greeting>You&rsquo;re in.</h1>
+  <p class="lede" style="margin: 28px auto 0; max-width: 620px;">
+    Your seat is saved for <span class="strong" data-when>[PLACEHOLDER: webinar date + time]</span>.
+    The join link is in your inbox now — save it, because we text it again an hour before we go live.
+  </p>
+
+  <div class="ty__actions">
+    <a class="btn btn--md" data-gcal href="#" target="_blank" rel="noopener">Add To Google Calendar</a>
+    <a class="btn btn--md btn--ghost" data-ics href="#" download="ngs-black-friday-live.ics">Download .ics</a>
+  </div>
+
+  <div class="ty__list">
+    <ul>
+      <li><span class="accordion__n">01</span><span>Watch the 60-second walkthrough we emailed you — it&rsquo;s exactly what to have open on the night. [PLACEHOLDER: 60s &ldquo;what to bring&rdquo; video]</span></li>
+      <li><span class="accordion__n">02</span><span>Have your ad account open and last month&rsquo;s numbers in front of you. We go through a real 30-day build live.</span></li>
+      <li><span class="accordion__n">03</span><span>Come live. The Black Friday price on Brand Scale is announced on the call and nowhere else, and a replay isn&rsquo;t guaranteed.</span></li>
+      <li><span class="accordion__n">04</span><span>Reply STOP to any text to stop the reminders. They&rsquo;re the only reason most people make it.</span></li>
+    </ul>
+  </div>
+
+  <p class="micro" style="margin-top: 40px;">Wrong email or number? Email us and we&rsquo;ll fix it before the live.</p>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span class="footer__logo">NGS</span>
+    <p class="footer__legal">Results vary by brand — all figures represent verified client data. This site is not part of Meta, TikTok or any of their properties. Next Gen Success LLC · <a href="https://mynextgensuccess.com/privacy">Privacy</a> · <a href="https://mynextgensuccess.com/terms">Terms</a> · <a href="https://mynextgensuccess.com/sms-terms">SMS Terms</a></p>
+    <span class="eyebrow">&copy; 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var CFG = window.NGS_CONFIG || {};
+  var start = new Date(CFG.webinarAt || '');
+  var TITLE = 'NGS Black Friday Live — With Kingxeuro';
+  var DETAILS = 'The exact system NGS uses to scale clothing brands, then Brand Scale opens for Black Friday week. Bring your ad account and last month’s numbers.'
+    + (CFG.joinUrl ? '\n\nJoin: ' + CFG.joinUrl : '');
+
+  try {
+    var name = sessionStorage.getItem('ngs-registered-name');
+    if (name) document.querySelector('[data-greeting]').textContent = 'You’re in, ' + name.split(' ')[0] + '.';
+  } catch (e) { /* private mode */ }
+
+  if (isNaN(start.getTime())) return;
+
+  var end = new Date(start.getTime() + 90 * 60 * 1000); // 90 minutes
+  var when = document.querySelector('[data-when]');
+  if (when) {
+    when.textContent = start.toLocaleString(undefined, {
+      weekday: 'long', month: 'long', day: 'numeric',
+      hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
+    });
+  }
+
+  function stamp(d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); }
+
+  var gcal = document.querySelector('[data-gcal]');
+  if (gcal) {
+    gcal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+      + '&text=' + encodeURIComponent(TITLE)
+      + '&dates=' + stamp(start) + '/' + stamp(end)
+      + '&details=' + encodeURIComponent(DETAILS)
+      + (CFG.joinUrl ? '&location=' + encodeURIComponent(CFG.joinUrl) : '');
+  }
+
+  var ics = document.querySelector('[data-ics]');
+  if (ics) {
+    var body = [
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Next Gen Success//BFCM Live//EN',
+      'BEGIN:VEVENT',
+      'UID:' + stamp(start) + '-bfcm@mynextgensuccess.com',
+      'DTSTAMP:' + stamp(new Date()),
+      'DTSTART:' + stamp(start),
+      'DTEND:' + stamp(end),
+      'SUMMARY:' + TITLE,
+      'DESCRIPTION:' + DETAILS.replace(/\n/g, '\\n'),
+      CFG.joinUrl ? 'LOCATION:' + CFG.joinUrl : '',
+      'BEGIN:VALARM', 'TRIGGER:-PT60M', 'ACTION:DISPLAY', 'DESCRIPTION:NGS Black Friday Live starts in an hour', 'END:VALARM',
+      'END:VEVENT', 'END:VCALENDAR'
+    ].filter(Boolean).join('\r\n');
+    ics.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(body);
+  }
+})();
+</script>
+</body>
+</html>

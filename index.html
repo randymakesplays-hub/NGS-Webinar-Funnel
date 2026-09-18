@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NGS Black Friday — Live Training With Kingxeuro</title>
+<meta name="description" content="We say no to most brands that apply. This Black Friday, we're not. Kingxeuro goes live to break down the exact system NGS uses to scale clothing brands — then opens the Brand Scale vault. Free to attend, 500 seats.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NGS Black Friday — Live Training With Kingxeuro">
+<meta property="og:description" content="One night. The exact system NGS uses to scale clothing brands, then the Brand Scale vault opens. Free to attend, 500 seats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/config.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav__inner">
+    <div class="nav__left">
+      <span class="nav__logo">NGS</span>
+      <span class="nav__rule" aria-hidden="true"></span>
+      <span class="eyebrow">Black Friday 2026</span>
+    </div>
+    <button type="button" class="btn btn--sm" data-register>Save My Seat</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="wrap hero">
+    <span class="pill">
+      <span class="pill__dot" aria-hidden="true"></span>
+      <span class="eyebrow">Live Training · One Night Only</span>
+    </span>
+
+    <h1 class="h-hero">We Say No To Most Brands That Apply.<span class="h-hero__accent">This Black Friday, We&rsquo;re Not.</span></h1>
+
+    <p class="lede hero__lede">Kingxeuro is going live to break down the exact system NGS uses to scale clothing brands — then opening the Brand Scale vault to every founder we&rsquo;ve ever had to turn away. One night. One week of pricing.</p>
+
+    <!-- VSL -->
+    <div class="vsl">
+      <div class="vsl__frame" data-vsl>
+        <video class="vsl__video" data-vsl-video muted playsinline preload="metadata" hidden></video>
+        <div class="vsl__placeholder" data-vsl-placeholder>
+          <button type="button" class="vsl__play" data-vsl-play aria-label="Play the video sales letter">
+            <svg width="28" height="32" viewBox="0 0 28 32" fill="none" aria-hidden="true"><path d="M26 14.268a2 2 0 0 1 0 3.464L4 30.454a2 2 0 0 1-3-1.732V3.278a2 2 0 0 1 3-1.732z" fill="#FFFFFF"/></svg>
+          </button>
+          <span class="eyebrow">Watch First — 6 Min From Kingxeuro</span>
+          <span class="vsl__hint" data-vsl-hint>[VSL VIDEO — set vslSrc in assets/js/config.js]</span>
+        </div>
+        <button type="button" class="vsl__unmute" data-vsl-unmute hidden>
+          <span class="vsl__unmute-badge" aria-hidden="true">
+            <svg width="26" height="22" viewBox="0 0 24 20" fill="none"><path d="M10 1L5 6H1v8h4l5 5z" fill="#fff"/><path d="M15 6a5 5 0 0 1 0 8M18.5 3a9 9 0 0 1 0 14" stroke="#fff" stroke-width="1.6" fill="none"/></svg>
+          </span>
+          Tap for sound
+        </button>
+        <div class="vsl__bar" aria-hidden="true"><span data-vsl-progress></span></div>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn--lg hero__cta" data-register data-vsl-cta>Save My Seat — Free</button>
+    <p class="micro hero__note">Free to attend · <span data-seats-total>500</span> live seats · Replay not guaranteed</p>
+  </section>
+
+  <!-- COUNTDOWN + SEATS -->
+  <section class="strip" aria-label="Countdown and seat availability">
+    <div class="wrap strip__inner">
+      <div class="countdown">
+        <span class="eyebrow">Doors Open In</span>
+        <div class="countdown__units" data-countdown>
+          <div class="unit"><div class="unit__n" data-cd="d">--</div><div class="unit__l">Days</div></div>
+          <div class="unit"><div class="unit__n" data-cd="h">--</div><div class="unit__l">Hrs</div></div>
+          <div class="unit"><div class="unit__n" data-cd="m">--</div><div class="unit__l">Min</div></div>
+          <div class="unit"><div class="unit__n" data-cd="s">--</div><div class="unit__l">Sec</div></div>
+        </div>
+      </div>
+      <div class="seats">
+        <div class="seats__row">
+          <span class="eyebrow"><span data-seats-claimed>—</span> of <span data-seats-total>500</span> seats claimed</span>
+          <span class="eyebrow seats__pct"><span data-seats-pct>—</span>% full</span>
+        </div>
+        <div class="meter"><span data-seats-meter></span></div>
+      </div>
+      <p class="micro local-time" data-local-time></p>
+    </div>
+  </section>
+
+  <!-- BRAND STRIP -->
+  <section class="brands" aria-label="Brands we have scaled">
+    <div class="wrap brands__inner">
+      <span class="eyebrow">Brands we&rsquo;ve scaled</span>
+      <span class="brands__name">Kings Play Apparel</span>
+      <span class="brands__name">Crib Essentials</span>
+      <span class="brands__name">Ill Studios</span>
+      <span class="brands__name">KAMO</span>
+      <span class="brands__name">Lavish Legacy</span>
+      <span class="brands__name">Imperil Vestures</span>
+      <span class="brands__name">One Chance</span>
+    </div>
+  </section>
+
+  <!-- THE HONEST VERSION -->
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__aside">
+        <span class="eyebrow eyebrow--accent">The Honest Version</span>
+        <h2 class="h-section">Most of you couldn&rsquo;t hire us. That was the problem.</h2>
+      </div>
+      <div class="split__main">
+        <p class="body-lg">NGS works with a limited number of clothing brands at a time. That isn&rsquo;t a scarcity line — it&rsquo;s a capacity limit. Every month we read applications from founders with real product, real taste and real customers, and we tell most of them no. Wrong stage. Wrong timing. Full roster.</p>
+        <p class="body-lg">The system was never the bottleneck. Access was.</p>
+        <p class="body-lg">So we took the whole thing — the training, the vendor list, the creative playbooks, the ad account structures, the retention flows — and packaged it. <span class="strong">Brand Scale is what we hand a client on day one of a retainer.</span> Black Friday is the only week it&rsquo;s priced for founders who aren&rsquo;t on one.</p>
+        <div class="pull"><p>You don&rsquo;t need us in your Slack. You need what&rsquo;s in our drive.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BREAK DOWN -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">On The Live</span>
+        <h2 class="h-section">Five things, then the offer.</h2>
+      </div>
+      <div class="grid-rule">
+        <article class="block">
+          <span class="block__n">01</span>
+          <h3>The First 30 Days</h3>
+          <p class="body">The exact launch order we run on a new brand — and how it produced $127,673.46 in revenue at 5.69x ROAS inside the first month of management.</p>
+        </article>
+        <article class="block">
+          <span class="block__n">02</span>
+          <h3>Where Product Actually Comes From</h3>
+          <p class="body">The vendor and supplier network we&rsquo;ve built across 30+ brands — plus how to vet a factory, price a sample, and stop wiring deposits blind.</p>
+        </article>
+        <article class="block">
+          <span class="block__n">03</span>
+          <h3>The Creative Engine</h3>
+          <p class="body">What we brief creators, how we test, and why the ads that print money look nothing like ads. Including the in-house creator program we run for clients.</p>
+        </article>
+        <article class="block">
+          <span class="block__n">04</span>
+          <h3>The Retention Layer</h3>
+          <p class="body">The email and SMS build that generated $122,561 at 53x ROI and a 16.4% opt-in rate — flow by flow, trigger by trigger.</p>
+        </article>
+        <article class="block span-2">
+          <span class="block__n">05</span>
+          <h3>Brand Scale — And What It Costs This Week</h3>
+          <p class="body" style="max-width: 780px;">Everything inside the package, who it&rsquo;s built for, and the Black Friday price. Announced live, on the call, and nowhere else. If you&rsquo;re not on the live, you pay what everyone else pays.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">Proven Results</span>
+        <h2 class="h-section">Real numbers. Real growth.</h2>
+        <p class="body">Due to client confidentiality, brand names have been withheld. These represent real, verified outcomes.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card__head"><span class="eyebrow">Client A</span><span class="eyebrow eyebrow--accent">In 30 Days</span></div>
+          <div><div class="num card__hero-n" data-count="127673" data-prefix="$">$127,673</div><div class="eyebrow">Total Revenue</div></div>
+          <div class="card__metrics">
+            <div><div class="num">5.69x</div><div class="eyebrow">ROAS</div></div>
+            <div><div class="num">+37%</div><div class="eyebrow">AOV Increase</div></div>
+          </div>
+          <p class="body">Optimized full-funnel efficiency to drive record-breaking monthly revenue within the first 30 days of management.</p>
+        </article>
+        <article class="card">
+          <div class="card__head"><span class="eyebrow">Client B</span><span class="eyebrow eyebrow--accent">In 90 Days</span></div>
+          <div><div class="num card__hero-n" data-count="291112" data-prefix="$">$291,112</div><div class="eyebrow">Revenue Generated</div></div>
+          <div class="card__metrics">
+            <div><div class="num">3.78x</div><div class="eyebrow">ROAS</div></div>
+          </div>
+          <p class="body">Scaled primary acquisition channels through aggressive creative testing and conversion rate optimization.</p>
+        </article>
+        <article class="card">
+          <div class="card__head"><span class="eyebrow">Client C</span><span class="eyebrow eyebrow--accent">In 120 Days</span></div>
+          <div><div class="num card__hero-n" data-count="122561" data-prefix="$">$122,561</div><div class="eyebrow">SMS Revenue</div></div>
+          <div class="card__metrics">
+            <div><div class="num">53x</div><div class="eyebrow">SMS ROI</div></div>
+            <div><div class="num">16.4%</div><div class="eyebrow">Opt-in Rate</div></div>
+          </div>
+          <p class="body">Built and scaled a high-performance SMS ecosystem to drive consistent, low-CAC retention revenue.</p>
+        </article>
+      </div>
+      <div class="statbar">
+        <div class="stat"><div class="num">$4.5M+</div><div class="eyebrow">Generated Revenue</div></div>
+        <div class="stat"><div class="num">5.2x</div><div class="eyebrow">Average ROAS</div></div>
+        <div class="stat"><div class="num">30+</div><div class="eyebrow">Brands Scaled</div></div>
+        <div class="stat"><div class="num">6</div><div class="eyebrow">Services In-House</div></div>
+      </div>
+      <p class="micro disclaimer">Results vary by brand — all figures represent verified client data</p>
+    </div>
+  </section>
+
+  <!-- INSIDE BRAND SCALE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="split" style="justify-content: space-between; align-items: flex-end; margin-bottom: clamp(32px, 3.6vw, 52px);">
+        <div class="split__aside">
+          <span class="eyebrow eyebrow--accent">The Offer</span>
+          <h2 class="h-section" style="margin-top: 18px;">Inside Brand Scale.</h2>
+        </div>
+        <p class="body" style="max-width: 420px;">Every asset, template and recording we use to run a paying client. Delivered the moment you buy — nothing drip-fed.</p>
+      </div>
+
+      <div class="accordion accordion--modules">
+        <div class="accordion__item">
+          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="mod-1">
+            <span class="accordion__label"><span class="accordion__n">01</span><span class="accordion__title">The Video Training Vault</span></span>
+            <span class="accordion__sym" aria-hidden="true">+</span>
+          </button></h3>
+          <div class="accordion__panel" id="mod-1"><p>Every system NGS runs, recorded and broken down end to end: Meta and TikTok account structure, creative testing cadence, scaling rules, CRO teardowns, and the decision framework we use when a campaign dies. Filmed inside real accounts, not on slides. [PLACEHOLDER: module count + total runtime]</p></div>
+        </div>
+        <div class="accordion__item">
+          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="mod-2">
+            <span class="accordion__label"><span class="accordion__n">02</span><span class="accordion__title">The Vendor List</span></span>
+            <span class="accordion__sym" aria-hidden="true">+</span>
+          </button></h3>
+          <div class="accordion__panel" id="mod-2"><p>The manufacturers, blank suppliers, print and embroidery partners and fulfilment contacts we actually use — with MOQs, lead times and the vetting checklist. The list that takes most founders two years and several bad samples to build. [PLACEHOLDER: vendor count]</p></div>
+        </div>
+        <div class="accordion__item">
+          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="mod-3">
+            <span class="accordion__label"><span class="accordion__n">03</span><span class="accordion__title">Content &amp; Creative Playbooks</span></span>
+            <span class="accordion__sym" aria-hidden="true">+</span>
+          </button></h3>
+          <div class="accordion__panel" id="mod-3"><p>Hook libraries, shot lists, creator briefs, the organic posting calendar, and the UGC sourcing process from our in-house creator program — including the outreach messages we send and the rates we pay.</p></div>
+        </div>
+        <div class="accordion__item">
+          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="mod-4">
+            <span class="accordion__label"><span class="accordion__n">04</span><span class="accordion__title">Ad Account Blueprints</span></span>
+            <span class="accordion__sym" aria-hidden="true">+</span>
+          </button></h3>
+          <div class="accordion__panel" id="mod-4"><p>Campaign structures, naming conventions, budget splits, testing frameworks and the exact build we deploy in week one — copy it into your own account and launch the same day.</p></div>
+        </div>
+        <div class="accordion__item">
+          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="mod-5">
+            <span class="accordion__label"><span class="accordion__n">05</span><span class="accordion__title">Email &amp; SMS Flow Library</span></span>
+            <span class="accordion__sym" aria-hidden="true">+</span>
+          </button></h3>
+          <div class="accordion__panel" id="mod-5"><p>The flows behind $122,561 in SMS revenue at 53x ROI — welcome, abandoned checkout, browse abandon, post-purchase, winback and drop sequences, written out and ready to paste into Klaviyo.</p></div>
+        </div>
+        <div class="accordion__item">
+          <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="mod-6">
+            <span class="accordion__label"><span class="accordion__n">06</span><span class="accordion__title">[PLACEHOLDER: Bonus / Community / Live Q&amp;A]</span></span>
+            <span class="accordion__sym" aria-hidden="true">+</span>
+          </button></h3>
+          <div class="accordion__panel" id="mod-6"><p>[PLACEHOLDER — confirm the final bonus. Strongest options: a private community with Kingxeuro answering, a monthly group call, or a one-time account audit for the first N buyers. The bonus is what makes the BFCM price feel like a mistake, so it should be the thing you can least afford to give away.]</p></div>
+        </div>
+      </div>
+
+      <div class="price">
+        <div>
+          <span class="eyebrow eyebrow--accent">Black Friday Pricing</span>
+          <div class="price__row">
+            <span class="price__now" data-bfcm-price>[BFCM PRICE]</span>
+            <span class="price__was" data-regular-price>[REGULAR PRICE]</span>
+          </div>
+          <p class="body">Revealed live on the call. Window closes Cyber Monday at midnight.</p>
+        </div>
+        <button type="button" class="btn btn--md" data-register>Save My Seat</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR / NOT FOR -->
+  <section class="section section--tight">
+    <div class="wrap pair">
+      <div class="panel panel--yes">
+        <span class="eyebrow eyebrow--ink">Register If</span>
+        <h3 class="h-sub">This is you.</h3>
+        <ul>
+          <li>You have a clothing brand with product shipping and at least some sales on the board.</li>
+          <li>You applied to NGS — or thought about it — and the retainer wasn&rsquo;t realistic yet.</li>
+          <li>You&rsquo;re running ads and can&rsquo;t tell whether the problem is the creative, the offer or the site.</li>
+          <li>You&rsquo;ll actually do the work if someone hands you the order of operations.</li>
+        </ul>
+      </div>
+      <div class="panel panel--no">
+        <span class="eyebrow">Skip It If</span>
+        <h3 class="h-sub">This is also you.</h3>
+        <ul>
+          <li>You don&rsquo;t have a product yet. Build the thing first — we&rsquo;ll be here.</li>
+          <li>You want someone else to run it for you. That&rsquo;s the retainer, and applications are separate.</li>
+          <li>You&rsquo;re looking for a guaranteed number. Nobody honest can give you one.</li>
+          <li>You collect courses and never open them. Save your money.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOST -->
+  <section class="section section--alt">
+    <div class="wrap host">
+      <div class="host__photo">
+        <span class="eyebrow">[PHOTO — Kingxeuro, 4:5 portrait]</span>
+      </div>
+      <div class="host__body">
+        <span class="eyebrow eyebrow--accent">Your Host</span>
+        <h2>Kingxeuro</h2>
+        <p class="body-lg" style="max-width: 720px;">Founder of Next Gen Success. Spends every day inside clothing brand ad accounts — not talking about them. [PLACEHOLDER: 2–3 sentences of origin story. Where you started, what you were doing before NGS, and the moment the system clicked. This is the block that decides whether a stranger trusts the next 45 minutes.]</p>
+        <div class="host__stats">
+          <div><div class="num">$4.5M+</div><div class="eyebrow">Client Revenue Generated</div></div>
+          <div><div class="num">30+</div><div class="eyebrow">Clothing Brands Scaled</div></div>
+          <div><div class="num">5.2x</div><div class="eyebrow">Average ROAS</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">Testimonials</span>
+        <h2 class="h-section" style="font-size: clamp(30px, 3.6vw, 52px);">Hear it from our clients.</h2>
+      </div>
+      <div class="tests">
+        <!-- Drop the 3 MP4s already on the NGS CDN into data-src; vertical, muted autoplay, tap to unmute. -->
+        <div class="test" data-testimonial data-src="">
+          <div class="test__badge" aria-hidden="true"><svg width="16" height="18" viewBox="0 0 28 32" fill="none"><path d="M26 14.268a2 2 0 0 1 0 3.464L4 30.454a2 2 0 0 1-3-1.732V3.278a2 2 0 0 1 3-1.732z" fill="#000000"/></svg></div>
+          <span class="eyebrow">Client Testimonial 01</span>
+        </div>
+        <div class="test" data-testimonial data-src="">
+          <div class="test__badge" aria-hidden="true"><svg width="16" height="18" viewBox="0 0 28 32" fill="none"><path d="M26 14.268a2 2 0 0 1 0 3.464L4 30.454a2 2 0 0 1-3-1.732V3.278a2 2 0 0 1 3-1.732z" fill="#000000"/></svg></div>
+          <span class="eyebrow">Client Testimonial 02</span>
+        </div>
+        <div class="test" data-testimonial data-src="">
+          <div class="test__badge" aria-hidden="true"><svg width="16" height="18" viewBox="0 0 28 32" fill="none"><path d="M26 14.268a2 2 0 0 1 0 3.464L4 30.454a2 2 0 0 1-3-1.732V3.278a2 2 0 0 1 3-1.732z" fill="#000000"/></svg></div>
+          <span class="eyebrow">Client Testimonial 03</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--tight">
+    <div class="wrap split">
+      <div class="split__aside" style="width: min(340px, 100%);">
+        <span class="eyebrow">Questions</span>
+        <h2 class="h-section" style="font-size: clamp(28px, 3.1vw, 44px); line-height: 1.04;">Before you register.</h2>
+      </div>
+      <div class="split__main" style="gap: 0;">
+        <div class="accordion">
+          <div class="accordion__item">
+            <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="faq-1">
+              <span class="accordion__title accordion__title--sm">Is the live actually free?</span>
+              <span class="accordion__sym" aria-hidden="true">+</span>
+            </button></h3>
+            <div class="accordion__panel" id="faq-1"><p>Yes. Nothing to pay to attend. We make our money when brands buy Brand Scale or apply for a retainer — neither is a condition of showing up.</p></div>
+          </div>
+          <div class="accordion__item">
+            <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="faq-2">
+              <span class="accordion__title accordion__title--sm">Will there be a replay?</span>
+              <span class="accordion__sym" aria-hidden="true">+</span>
+            </button></h3>
+            <div class="accordion__panel" id="faq-2"><p>Not guaranteed, and the Black Friday pricing is announced live. If a replay goes out it will be short-window and the offer may already be gone. Come live.</p></div>
+          </div>
+          <div class="accordion__item">
+            <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="faq-3">
+              <span class="accordion__title accordion__title--sm">How much is Brand Scale?</span>
+              <span class="accordion__sym" aria-hidden="true">+</span>
+            </button></h3>
+            <div class="accordion__panel" id="faq-3"><p>The Black Friday price is revealed on the call and holds until Cyber Monday at midnight. It is a fraction of a single month of NGS management. That is the whole point of doing this once a year.</p></div>
+          </div>
+          <div class="accordion__item">
+            <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="faq-4">
+              <span class="accordion__title accordion__title--sm">I&rsquo;m pre-launch. Should I come?</span>
+              <span class="accordion__sym" aria-hidden="true">+</span>
+            </button></h3>
+            <div class="accordion__panel" id="faq-4"><p>The vendor list and creative playbooks will help you. The ad scaling material assumes you have product shipping and data to work with. If you have nothing to sell yet, this isn&rsquo;t your moment.</p></div>
+          </div>
+          <div class="accordion__item">
+            <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="faq-5">
+              <span class="accordion__title accordion__title--sm">Is this the same as working with NGS?</span>
+              <span class="accordion__sym" aria-hidden="true">+</span>
+            </button></h3>
+            <div class="accordion__panel" id="faq-5"><p>No. Brand Scale is the playbook. A retainer is us executing it inside your accounts, with our creative team and creator program behind it. Different product, different price, separate application.</p></div>
+          </div>
+          <div class="accordion__item">
+            <h3><button type="button" class="accordion__btn" aria-expanded="false" aria-controls="faq-6">
+              <span class="accordion__title accordion__title--sm">Do you guarantee results?</span>
+              <span class="accordion__sym" aria-hidden="true">+</span>
+            </button></h3>
+            <div class="accordion__panel" id="faq-6"><p>No, and be careful with anyone who does. Every figure on this page is verified client data from brands who executed. Results vary by brand, product, market and effort. [PLACEHOLDER: refund policy — state it plainly here.]</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--alt final">
+    <div class="wrap">
+      <h2>One night. Then it&rsquo;s a year until the next one.</h2>
+      <p class="lede">Free to attend. <span data-seats-total>500</span> seats. The Brand Scale price lives and dies inside Black Friday week.</p>
+      <button type="button" class="btn btn--lg" data-register>Save My Seat — Free</button>
+      <p class="micro"><span data-seats-claimed>—</span> of <span data-seats-total>500</span> claimed · Takes 20 seconds</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span class="footer__logo">NGS</span>
+    <p class="footer__legal">Results vary by brand — all figures represent verified client data. This site is not part of Meta, TikTok or any of their properties. Next Gen Success LLC · <a href="https://mynextgensuccess.com/privacy">Privacy</a> · <a href="https://mynextgensuccess.com/terms">Terms</a> · <a href="https://mynextgensuccess.com/sms-terms">SMS Terms</a></p>
+    <span class="eyebrow">&copy; 2026</span>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky" data-sticky>
+  <button type="button" class="btn btn--md btn--block" data-register>Save My Seat — Free</button>
+  <span class="micro sticky__note"><span data-sticky-cd>—</span> left · <span data-seats-claimed>—</span>/<span data-seats-total>500</span> claimed</span>
+</div>
+
+<!-- REGISTRATION MODAL -->
+<div class="modal" data-modal role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <button type="button" class="modal__scrim" data-modal-close tabindex="-1" aria-label="Close registration"></button>
+  <div class="modal__panel">
+    <div class="modal__head">
+      <span class="eyebrow eyebrow--accent">Free Registration</span>
+      <button type="button" class="modal__close" data-modal-close aria-label="Close registration">&times;</button>
+    </div>
+    <h2 class="modal__title" id="modal-title">Save my seat.</h2>
+    <p class="body">Free to attend. No pitch for the first 45 minutes. Then there is one, and I&rsquo;ll tell you when it starts.</p>
+
+    <form class="form" data-form novalidate>
+      <div class="field">
+        <label for="f-name">What&rsquo;s your name?</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Type your answer here...">
+        <span class="field__error" data-error>Add your name so we know who&rsquo;s on the call.</span>
+      </div>
+      <div class="field">
+        <label for="f-email">What&rsquo;s your email?</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com">
+        <span class="field__error" data-error>We send the join link here — check the spelling.</span>
+      </div>
+      <div class="field">
+        <label for="f-phone">What is your phone number?</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+1 (000) 000-0000">
+        <span class="field__error" data-error>Enter a phone number we can text the link to.</span>
+      </div>
+
+      <div class="consent">
+        <input id="f-sms" name="smsConsent" type="checkbox" required>
+        <label for="f-sms">Text me reminders about this training at the number above. Consent is not a condition of registering or of any purchase. Message and data rates may apply. Reply STOP to opt out, HELP for help.</label>
+      </div>
+      <span class="field__error" data-consent-error hidden>Tick the box if you want the reminder texts — they&rsquo;re how most people actually make it live.</span>
+
+      <div class="field">
+        <label for="f-ig">What&rsquo;s your brand&rsquo;s Instagram URL?</label>
+        <input id="f-ig" name="instagram" type="text" required placeholder="instagram.com/yourbrand">
+        <span class="field__error" data-error>Drop your brand&rsquo;s Instagram so we know who we&rsquo;re talking to.</span>
+      </div>
+      <div class="field">
+        <label for="f-rev">How much revenue is your brand currently doing per month?</label>
+        <select id="f-rev" name="revenue" required>
+          <option value="">Select one</option>
+          <option>Under $10K/month</option>
+          <option>$10K - $25K/month</option>
+          <option>$25K - $50K/month</option>
+          <option>$50K - $100K/month</option>
+          <option>$100K+/month</option>
+        </select>
+        <span class="field__error" data-error>Pick the band closest to where you are.</span>
+      </div>
+      <div class="field">
+        <label for="f-ads">Are you currently running paid ads?</label>
+        <select id="f-ads" name="runningAds" required>
+          <option value="">Select one</option>
+          <option>Yes, on Facebook/Instagram</option>
+          <option>Yes, on TikTok</option>
+          <option>Yes, on multiple platforms</option>
+          <option>No, but I want to start</option>
+          <option>I&rsquo;ve tried but stopped</option>
+        </select>
+        <span class="field__error" data-error>Pick the one that fits today.</span>
+      </div>
+      <div class="field">
+        <label for="f-source">How did you hear about NGS? <span style="letter-spacing:0.1em;">(optional)</span></label>
+        <select id="f-source" name="source">
+          <option value="">Select one</option>
+          <option>Instagram</option>
+          <option>YouTube</option>
+          <option>Tiktok</option>
+          <option>Referral from another brand</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <p class="form__status" data-form-status role="alert"></p>
+      <button type="submit" class="btn btn--lg btn--block form__submit" data-form-submit>Save My Seat — Free</button>
+      <p class="micro form__foot">Free to attend · <span data-seats-claimed>—</span> of <span data-seats-total>500</span> claimed · Takes 20 seconds</p>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
